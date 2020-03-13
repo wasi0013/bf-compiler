@@ -2,7 +2,7 @@ defmodule Bfc.CLI do
   @moduledoc """
   Handle the command line parsing and the dispatch to the various functions
   """
-  def run(argv) do
+  def main(argv) do
     argv
     |> parse_args
     |> process
