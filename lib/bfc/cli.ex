@@ -3,11 +3,21 @@ defmodule Bfc.CLI do
   Handle the command line parsing and the dispatch to the various functions
   """
   def run(argv) do
-    parse_args(argv)
+    argv
+    |> parse_args
+    |> process
+
+  end
+
+  def process(:help) do
+    IO.puts """
+    usage: bfc "/path/to/bf/code.bf" 
+    """
+    System.halt(0)
   end
 
   @doc """
-  `argv` can be -h or --help which returns :help.
+  `argv` can be a file path or -h / --help which returns :help.
   """
   def parse_args(argv) do
     OptionParser.parse(argv, switches: [help: :boolean], aliases: [h: :help])
