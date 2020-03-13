@@ -15,6 +15,11 @@ defmodule Bfc.CLI do
     """
     System.halt(0)
   end
+  
+  def process(file_path) do
+    Bfc.Compiler.compile(file_path)
+  end
+
 
   @doc """
   `argv` can be a file path or -h / --help which returns :help.
