@@ -4,21 +4,25 @@
 
 Brainfuck Compiler written in Elixir
 
+# Compile
 
-## Installation
+ - Clone this repository.
+ - Check all the tests are passing by running `mix test`
+ - Generate an executable by running the command: `mix escript.build`
+ - The above command should generate an executable named `bfc`
+ 
+# Run
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `bfc` to your list of dependencies in `mix.exs`:
+  `./bfc /path/to/bf/source_code.bf`
+
+## Installation as a Package
+
+The package can be installed from github by adding `bfc` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:bfc, "~> 0.1.0"}
+    {:bfc, git: "https://github.com/wasi0013/bfc.git"}
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/bfc](https://hexdocs.pm/bfc).
-
