@@ -1,5 +1,6 @@
 defmodule CompilerTest do
   use ExUnit.Case
+  doctest Bfc.Compiler
   import Bfc.Compiler
 
   test "clean bf code" do

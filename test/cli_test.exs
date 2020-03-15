@@ -1,6 +1,6 @@
 defmodule CliTest do
   use ExUnit.Case
-  doctest Bfc
+  doctest Bfc.CLI
 
   import Bfc.CLI, only: [parse_args: 1]
 
