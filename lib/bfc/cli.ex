@@ -6,20 +6,19 @@ defmodule Bfc.CLI do
     argv
     |> parse_args
     |> process
-
   end
 
   def process(:help) do
-    IO.puts """
+    IO.puts("""
     usage: bfc "/path/to/bf/code.bf" 
-    """
+    """)
+
     System.halt(0)
   end
-  
+
   def process(file_path) do
     Bfc.Compiler.compile(file_path)
   end
-
 
   @doc """
   `argv` can be a file path or -h / --help which returns :help.
@@ -37,5 +36,4 @@ defmodule Bfc.CLI do
   def process_args(_) do
     :help
   end
-
 end
