@@ -29,22 +29,23 @@ defmodule Bfc.Compiler do
     {pointer, memory, output}
   end
 
-  def evaluate("+"<>code, pointer, memory, output) do
-    evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 + 1)) , output)
+  def evaluate("+" <> code, pointer, memory, output) do
+    evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 + 1)), output)
   end
 
-  def evaluate("-"<>code, pointer, memory, output) do
-    evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 - 1)) , output)
+  def evaluate("-" <> code, pointer, memory, output) do
+    evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 - 1)), output)
   end
 
-  def evaluate(">"<>code, pointer, memory, output) do
-    evaluate(code, pointer+1, memory, output)
-  end
-  def evaluate("<"<>code, pointer, memory, output) do
-    evaluate(code, pointer-1, memory, output)
-  end
-  def evaluate("."<>code, pointer, memory, output) do
-    evaluate(code, pointer, memory, output<>to_string([Enum.at(memory, pointer)]))
+  def evaluate(">" <> code, pointer, memory, output) do
+    evaluate(code, pointer + 1, memory, output)
   end
 
+  def evaluate("<" <> code, pointer, memory, output) do
+    evaluate(code, pointer - 1, memory, output)
+  end
+
+  def evaluate("." <> code, pointer, memory, output) do
+    evaluate(code, pointer, memory, output <> to_string([Enum.at(memory, pointer)]))
+  end
 end
