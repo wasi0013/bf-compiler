@@ -9,4 +9,25 @@ defmodule CompilerTest do
   test "evaluate empty string" do
     assert evaluate("", 0, [0], "") == {0, [0], ""}
   end
+
+  test "Increment operation" do
+    assert evaluate("+++", 0, [0], "") == {0, [3], ""}
+  end
+
+  test "decrement operation" do
+    assert evaluate("---", 0, [3], "") == {0, [0], ""}
+  end
+
+  test "left shift operation" do
+    assert evaluate("<<<", 3, [0], "") == {0, [0], ""}
+  end
+
+  test "right shift operation" do
+    assert evaluate(">>>", 0, [0], "") == {3, [0], ""}
+  end
+
+  test "output operation" do
+    assert evaluate(".", 0, [65], "") == {0, [65], "A"}
+  end
+
 end

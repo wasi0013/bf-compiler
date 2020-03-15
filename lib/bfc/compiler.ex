@@ -16,7 +16,7 @@ defmodule Bfc.Compiler do
 
   def execute(code) do
     clean(code)
-    evaluate("", 0, [0], "")
+    evaluate(code, 0, [0], "")
   end
 
   def clean(code) do
@@ -28,4 +28,23 @@ defmodule Bfc.Compiler do
   def evaluate("", pointer, memory, output) do
     {pointer, memory, output}
   end
+
+  def evaluate("+"<>code, pointer, memory, output) do
+    evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 + 1)) , output)
+  end
+
+  def evaluate("-"<>code, pointer, memory, output) do
+    evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 - 1)) , output)
+  end
+
+  def evaluate(">"<>code, pointer, memory, output) do
+    evaluate(code, pointer+1, memory, output)
+  end
+  def evaluate("<"<>code, pointer, memory, output) do
+    evaluate(code, pointer-1, memory, output)
+  end
+  def evaluate("."<>code, pointer, memory, output) do
+    evaluate(code, pointer, memory, output<>to_string([Enum.at(memory, pointer)]))
+  end
+
 end
