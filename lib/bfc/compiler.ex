@@ -37,11 +37,15 @@ defmodule Bfc.Compiler do
     evaluate(code, pointer, memory |> List.update_at(pointer, &(&1 - 1)), output)
   end
 
-  def evaluate(">" <> code, pointer, memory, output) do
+  def evaluate(">" <> code, pointer, memory, output) when pointer + 1 <= length(memory) do
     evaluate(code, pointer + 1, memory, output)
   end
+  
+  def evaluate(">"<>code, pointer, memory, output) do
+    evaluate(code, pointer + 1, memory ++ [0], output)
+  end
 
-  def evaluate("<" <> code, pointer, memory, output) do
+  def evaluate("<" <> code, pointer, memory, output) when pointer - 1 >= 0 do
     evaluate(code, pointer - 1, memory, output)
   end
 
