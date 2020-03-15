@@ -1,6 +1,8 @@
 # Bfc
 
-Brainfuck Compilter written in Elixir
+![Elixir CI](https://github.com/wasi0013/bfc/workflows/Elixir%20CI/badge.svg?branch=master)
+
+Brainfuck Compiler written in Elixir
 
 
 ## Installation
