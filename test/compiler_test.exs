@@ -30,4 +30,8 @@ defmodule CompilerTest do
   test "output operation" do
     assert evaluate(".", 0, [65], "") == {0, [65], "A"}
   end
+
+  test "loop operation" do
+    assert evaluate("++++[-]", 0, [0], "") == {0, [0], ""}
+  end
 end
