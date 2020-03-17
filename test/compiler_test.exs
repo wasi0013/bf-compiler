@@ -4,7 +4,7 @@ defmodule CompilerTest do
   import Bfc.Compiler
 
   test "clean bf code" do
-    assert clean("+ - [ ] , . < > AA?") == '+-[],.<>'
+    assert clean("+ - [ ] , . < > AA?") == "+-[],.<>"
   end
 
   test "evaluate empty string" do
@@ -24,7 +24,7 @@ defmodule CompilerTest do
   end
 
   test "right shift operation" do
-    assert evaluate(">>>", 0, [0], "") == {3, [0,0,0], ""}
+    assert evaluate(">>>", 0, [0], "") == {3, [0, 0, 0], ""}
   end
 
   test "output operation" do
