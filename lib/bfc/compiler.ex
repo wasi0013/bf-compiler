@@ -55,8 +55,8 @@ defmodule Bfc.Compiler do
   def evaluate("." <> code, pointer, memory, output) do
     evaluate(code, pointer, memory, output <> to_string([Enum.at(memory, pointer)]))
   end
-  
-  def evaluate(","<> code, pointer, memory, output) do
+
+  def evaluate("," <> code, pointer, memory, output) do
     <<value::utf8>> = IO.getn(">>>", 1)
     evaluate(code, pointer, List.replace_at(memory, pointer, value), output)
   end
