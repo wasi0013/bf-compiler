@@ -5,6 +5,7 @@ defmodule Bfc.Compiler do
 
   def compile(filepath) do
     read_file(filepath)
+    |> elem(2)
   end
 
   def read_file(filepath) do
@@ -28,7 +29,7 @@ defmodule Bfc.Compiler do
   end
 
   def evaluate("", pointer, memory, output) do
-    IO.inspect({pointer, memory, output})
+    {pointer, memory, output}
   end
 
   def evaluate("+" <> code, pointer, memory, output) do
@@ -70,7 +71,6 @@ defmodule Bfc.Compiler do
   end
 
   defp skip_loop(code) do
-    IO.puts(code)
     String.slice(code, find_loop(code)..-1)
   end
 
