@@ -2,7 +2,7 @@
 
 ![Elixir CI](https://github.com/wasi0013/bfc/workflows/Elixir%20CI/badge.svg?branch=master)
 
-Brainfuck Compiler written in Elixir
+[Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) Compiler written in Elixir
 
 # Compile
 
@@ -29,12 +29,10 @@ Brainfuck Compiler written in Elixir
 ```
 {_,_, output} = Bfc.Compiler.execute("+++++++++++>+>>>>++++++++++++++++++++++++++++++++++++++++++++>++++++++++++++++++++++++++++++++<<<<<<[>[>>>>>>+>+<<<<<<<-]>>>>>>>[<<<<<<<+>>>>>>>-]<[>++++++++++[-<-[>>+>+<<<-]>>>[<<<+>>>-]+<[>[-]<[-]]>[<<[>>>+<<<-]>>[-]]<<]>>>[>>+>+<<<-]>>>[<<<+>>>-]+<[>[-]<[-]]>[<<+>>[-]]<<<<<<<]>>>>>[++++++++++++++++++++++++++++++++++++++++++++++++.[-]]++++++++++<[->-<]>++++++++++++++++++++++++++++++++++++++++++++++++.[-]<<<<<<<<<<<<[>>>+>+<<<<-]>>>>[<<<<+>>>>-]<-[>>.>.<<<[-]]<<[>>+>+<<<-]>>>[<<<+>>>-]<<[<+>-]>[<+>-]<<<-]")
 ```
+the output should be the [fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number) series 
 ```
-output
 "1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89"
 ```
-
-
 
 ## Installation as a Package
 
