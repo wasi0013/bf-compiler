@@ -4,8 +4,8 @@ defmodule Bfc.Compiler do
   """
 
   def compile(filepath) do
-    read_file(filepath)
-    |> elem(2)
+    {_, _, output} = read_file(filepath)
+    IO.puts(output)
   end
 
   def read_file(filepath) do
