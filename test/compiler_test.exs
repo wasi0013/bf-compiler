@@ -20,11 +20,11 @@ defmodule CompilerTest do
   end
 
   test "left shift operation" do
-    assert evaluate("<<<", 3, [0, 0, 0], "") == {0, [0, 0, 0], ""}
+    assert evaluate("<<", 2, [0, 0, 0], "") == {0, [0, 0, 0], ""}
   end
 
   test "right shift operation" do
-    assert evaluate(">>>", 0, [0], "") == {3, [0, 0, 0], ""}
+    assert evaluate(">>>", 0, [0], "") == {3, [0, 0, 0, 0], ""}
   end
 
   test "output operation" do
