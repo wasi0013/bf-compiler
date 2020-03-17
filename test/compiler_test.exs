@@ -34,4 +34,8 @@ defmodule CompilerTest do
   test "loop operation" do
     assert evaluate("++++[-]", 0, [0], "") == {0, [0], ""}
   end
+
+  test "loop with shift operation" do
+    assert evaluate("+++[>+++<-]", 0, [0], "") == {0, [0, 9], ""}
+  end
 end
