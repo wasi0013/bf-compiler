@@ -78,7 +78,7 @@ defmodule Bfc.Compiler do
     String.slice(code, 0..(find_loop(code) - 2))
   end
 
-  def find_loop(code) do
+  defp find_loop(code) do
     count =
       Enum.reduce(String.to_charlist(code), [1, 0], fn char, acc ->
         if Enum.at(acc, 0) != 0 do
@@ -103,7 +103,7 @@ defmodule Bfc.Compiler do
       end)
 
     if Enum.at(count, 0) != 0 do
-      raise "Braces mismatch"
+      raise RuntimeError, "Braces mismatch"
     end
 
     Enum.at(count, 1)
