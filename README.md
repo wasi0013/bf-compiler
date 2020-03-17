@@ -13,7 +13,10 @@ Brainfuck Compiler written in Elixir
  
 # Run
 
-  `./bfc /path/to/bf/source_code.bf`
+  `./bfc <path of brainfuck source code>`
+  
+  **example:**
+  `./bfc test/fixtures/test_code.bf`
 
 ## Installation as a Package
 
