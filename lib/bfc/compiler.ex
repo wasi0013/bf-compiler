@@ -84,17 +84,24 @@ defmodule Bfc.Compiler do
   end
 
   defp find_loop(code) do
+    depth = 1
+    position = 0
+
     count =
-      Enum.reduce(String.to_charlist(code), [1, 0], fn char, acc ->
+      Enum.reduce(String.to_charlist(code), [depth, position], fn char, acc ->
+        # continue while depth is not 0
         if Enum.at(acc, 0) != 0 do
           case char do
             ?[ ->
+              # start of an inner loop
               acc
+              # increase depth & position
               |> List.replace_at(0, Enum.at(acc, 0) + 1)
               |> List.replace_at(1, Enum.at(acc, 1) + 1)
 
             ?] ->
               acc
+              # end of current loop so decrease depth
               |> List.replace_at(0, Enum.at(acc, 0) - 1)
               |> List.replace_at(1, Enum.at(acc, 1) + 1)
 
@@ -107,10 +114,12 @@ defmodule Bfc.Compiler do
         end
       end)
 
+    # depth is not 0
     if Enum.at(count, 0) != 0 do
       raise RuntimeError, "Braces mismatch"
     end
 
+    # return position
     Enum.at(count, 1)
   end
 end
